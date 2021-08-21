@@ -1,5 +1,7 @@
 # GitHub GraphQL API client
 
+[![godoc](https://img.shields.io/badge/pkg.go.dev-godoc-00ADD8?logo=go)](https://pkg.go.dev/go.jlucktay.dev/my-github-repos)
+
 ## Goal
 
 Get a list of all of repositories owned by me from GitHub, alongside and/or sorted by creation date.

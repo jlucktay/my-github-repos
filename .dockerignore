@@ -1,0 +1,13 @@
+# Metadata
+.dockerignore
+.git/
+.github/
+.gitignore
+
+# Build and binary files
+Dockerfile
+my-github-repos
+
+# Makefile things
+/out/
+/tmp/
