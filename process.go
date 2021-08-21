@@ -26,5 +26,5 @@ func process(qor queryOwnedRepos, ownedRepos *[]string) (hasNextPage bool, endCu
 		}
 	}
 
-	return
+	return hasNextPage, endCursor
 }
