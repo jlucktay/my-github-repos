@@ -13,17 +13,20 @@ import (
 )
 
 const (
-	envKey      = "GITHUB_TOKEN"
-	githubLogin = "jlucktay"
-	perPage     = 100
+	envKey  = "GITHUB_TOKEN"
+	perPage = 100
 
 	timeout5s = 5 * time.Second
 )
 
-var jsonFlag bool
+var (
+	jsonFlag  bool
+	loginFlag string
+)
 
 func init() {
 	flag.BoolVar(&jsonFlag, "json", false, "format output as JSON")
+	flag.StringVar(&loginFlag, "login", "jlucktay", "fetch repos belonging to this GitHub username")
 }
 
 func main() {
@@ -51,7 +54,7 @@ func main() {
 	var queryMine, queryForked queryOwnedRepos
 
 	queryVariables := map[string]interface{}{
-		"login":   githubv4.String(githubLogin),
+		"login":   githubv4.String(loginFlag),
 		"perPage": githubv4.Int(perPage),
 	}
 
