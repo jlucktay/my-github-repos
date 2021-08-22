@@ -10,6 +10,8 @@ import (
 
 	"github.com/shurcooL/githubv4"
 	"golang.org/x/oauth2"
+
+	"go.jlucktay.dev/my-github-repos/pkg/version"
 )
 
 const (
@@ -31,6 +33,17 @@ func init() {
 
 func main() {
 	flag.Parse()
+
+	if !jsonFlag {
+		ver, err := version.Details()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "could not get version details: %v\n", err)
+
+			return
+		}
+
+		fmt.Println(ver)
+	}
 
 	// Set up GitHub GraphQL API v4 client
 	token, tokenSet := os.LookupEnv(envKey)
@@ -74,7 +87,11 @@ func main() {
 		return
 	}
 
-	printerFunc(myRepos, printSources)
+	if err := printerFunc(myRepos, printSources); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+
+		return
+	}
 
 	// Query for forked repos
 	queryVariables["isFork"] = githubv4.Boolean(true)
@@ -86,7 +103,11 @@ func main() {
 		return
 	}
 
-	printerFunc(forkedRepos, printForks)
+	if err := printerFunc(forkedRepos, printForks); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+
+		return
+	}
 
 	if !jsonFlag {
 		return

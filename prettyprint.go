@@ -5,17 +5,17 @@ import (
 	"os"
 
 	"golang.org/x/term"
+
+	"go.jlucktay.dev/my-github-repos/pkg/version"
 )
 
-func prettyPrintTerminal(input []string, repoType string) {
+func prettyPrintTerminal(input []string, repoType string) error {
 	fmt.Printf("%d repo %s:\n", len(input), repoType)
 
 	// get terminal width
 	tw, _, errTGS := term.GetSize(int(os.Stdout.Fd()))
 	if errTGS != nil {
-		fmt.Fprintf(os.Stderr, "couldn't get terminal size: %v\n", errTGS)
-
-		return
+		return fmt.Errorf("couldn't get terminal size: %w", errTGS)
 	}
 
 	// get longest repo name
@@ -40,9 +40,12 @@ func prettyPrintTerminal(input []string, repoType string) {
 	}
 
 	fmt.Println()
+
+	return nil
 }
 
 type jsonOutput struct {
+	Version string   `json:"version"`
 	Sources []string `json:"sources"`
 	Forks   []string `json:"forks"`
 }
@@ -54,11 +57,20 @@ const (
 	printForks   = "forks"
 )
 
-func prettyPrintJSON(input []string, repoType string) {
+func prettyPrintJSON(input []string, repoType string) error {
+	ver, err := version.Details()
+	if err != nil {
+		return fmt.Errorf("could not get version details: %w", err)
+	}
+
+	jsonBuffer.Version = ver
+
 	switch repoType {
 	case printSources:
 		jsonBuffer.Sources = append(jsonBuffer.Sources, input...)
 	case printForks:
 		jsonBuffer.Forks = append(jsonBuffer.Forks, input...)
 	}
+
+	return nil
 }
