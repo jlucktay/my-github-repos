@@ -1,4 +1,4 @@
-module go.jlucktay.dev/golang-workbench/graphql/github
+module go.jlucktay.dev/my-github-repos
 
 go 1.15
 
