@@ -50,7 +50,8 @@ linters-settings:
     max-func-lines: 25
 
   nestif:
-    min-complexity: 4
+    # minimal complexity of if statements to report, 5 by default
+    min-complexity: 5
 
   nolintlint:
     # Exclude following linters from requiring an explanation.  Default is [].

@@ -6,6 +6,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/shurcooL/githubv4"
@@ -22,27 +23,45 @@ const (
 )
 
 var (
-	jsonFlag  bool
-	loginFlag string
+	jsonFlag    bool
+	versionFlag bool
+	loginFlag   string
 )
 
 func init() {
 	flag.BoolVar(&jsonFlag, "json", false, "format output as JSON")
+	flag.BoolVar(&versionFlag, "version", false, "output version only, and exit immediately")
 	flag.StringVar(&loginFlag, "login", "jlucktay", "fetch repos belonging to this GitHub username")
 }
 
 func main() {
 	flag.Parse()
 
-	if !jsonFlag {
-		ver, err := version.Details()
+	if versionFlag && jsonFlag {
+		err := prettyPrintJSON(nil, "")
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "could not get version details: %v\n", err)
 
 			return
 		}
 
+		jsonResult, err := json.Marshal(jsonBuffer)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "could not marshal JSON result: %v\n", err)
+		}
+
+		fmt.Println(strings.TrimSpace(string(jsonResult)))
+
+		return
+	} else if versionFlag && !jsonFlag {
+		ver, err := version.Details()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "could not get version details: %v\n", err)
+		}
+
 		fmt.Println(ver)
+
+		return
 	}
 
 	// Set up GitHub GraphQL API v4 client

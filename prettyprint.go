@@ -46,8 +46,8 @@ func prettyPrintTerminal(input []string, repoType string) error {
 
 type jsonOutput struct {
 	Version string   `json:"version"`
-	Sources []string `json:"sources"`
-	Forks   []string `json:"forks"`
+	Sources []string `json:"sources,omitempty"`
+	Forks   []string `json:"forks,omitempty"`
 }
 
 var jsonBuffer jsonOutput
