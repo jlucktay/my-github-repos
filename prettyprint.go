@@ -8,7 +8,7 @@ import (
 	"golang.org/x/term"
 )
 
-func prettyPrintTerminal(input []string, repoType string) error {
+func prettyPrintTerminal(input []string, repoType printType) error {
 	fmt.Printf("%d repo %s:\n", len(input), repoType)
 
 	// get terminal width
@@ -51,12 +51,14 @@ type jsonOutput struct {
 
 var jsonBuffer jsonOutput
 
+type printType string
+
 const (
-	printSources = "sources"
-	printForks   = "forks"
+	printSources printType = "sources"
+	printForks   printType = "forks"
 )
 
-func prettyPrintJSON(input []string, repoType string) error {
+func prettyPrintJSON(input []string, repoType printType) error {
 	ver, err := version.Details()
 	if err != nil {
 		return fmt.Errorf("could not get version details: %w", err)
