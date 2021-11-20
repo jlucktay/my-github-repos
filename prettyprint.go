@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"go.jlucktay.dev/version"
 	"golang.org/x/term"
@@ -44,9 +45,9 @@ func prettyPrintTerminal(input []string, repoType printType) error {
 }
 
 type jsonOutput struct {
-	Version string   `json:"version"`
-	Sources []string `json:"sources,omitempty"`
-	Forks   []string `json:"forks,omitempty"`
+	Version string `json:"version"`
+	Sources string `json:"sources,omitempty"`
+	Forks   string `json:"forks,omitempty"`
 }
 
 var jsonBuffer jsonOutput
@@ -68,9 +69,9 @@ func prettyPrintJSON(input []string, repoType printType) error {
 
 	switch repoType {
 	case printSources:
-		jsonBuffer.Sources = append(jsonBuffer.Sources, input...)
+		jsonBuffer.Sources = strings.Join(input, ",")
 	case printForks:
-		jsonBuffer.Forks = append(jsonBuffer.Forks, input...)
+		jsonBuffer.Forks = strings.Join(input, ",")
 	}
 
 	return nil
