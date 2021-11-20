@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"golang.org/x/term"
-
 	"go.jlucktay.dev/version"
+	"golang.org/x/term"
 )
 
 func prettyPrintTerminal(input []string, repoType string) error {

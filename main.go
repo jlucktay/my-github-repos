@@ -10,9 +10,8 @@ import (
 	"time"
 
 	"github.com/shurcooL/githubv4"
-	"golang.org/x/oauth2"
-
 	"go.jlucktay.dev/version"
+	"golang.org/x/oauth2"
 )
 
 const (
@@ -37,9 +36,9 @@ func init() {
 func main() {
 	flag.Parse()
 
-	if versionFlag && jsonFlag {
-		err := prettyPrintJSON(nil, "")
-		if err != nil {
+	switch {
+	case versionFlag && jsonFlag:
+		if err := prettyPrintJSON(nil, ""); err != nil {
 			fmt.Fprintf(os.Stderr, "could not get version details: %v\n", err)
 
 			return
@@ -53,7 +52,7 @@ func main() {
 		fmt.Println(strings.TrimSpace(string(jsonResult)))
 
 		return
-	} else if versionFlag && !jsonFlag {
+	case versionFlag && !jsonFlag:
 		ver, err := version.Details()
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "could not get version details: %v\n", err)
