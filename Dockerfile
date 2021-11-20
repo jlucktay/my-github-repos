@@ -1,4 +1,4 @@
-FROM golang:1.15 AS builder
+FROM golang:1.16 AS builder
 
 # Set some shell options for using pipes and such
 SHELL [ "/bin/bash", "-euo", "pipefail", "-c" ]
@@ -26,7 +26,7 @@ COPY . .
 # https://github.com/golang/go/issues/27719#issuecomment-514747274
 RUN --mount=type=cache,target=/go/pkg/mod \
   --mount=type=cache,target=/root/.cache/go-build \
-  go build -ldflags="-buildid= -w" -trimpath -v -o /bin/my-github-repos
+  go build -trimpath -v -o /bin/my-github-repos
 
 FROM scratch AS runner
 
