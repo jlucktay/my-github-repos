@@ -12,7 +12,7 @@ import (
 	"github.com/shurcooL/githubv4"
 	"golang.org/x/oauth2"
 
-	"go.jlucktay.dev/my-github-repos/pkg/version"
+	"go.jlucktay.dev/version"
 )
 
 const (

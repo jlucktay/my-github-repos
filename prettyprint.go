@@ -6,7 +6,7 @@ import (
 
 	"golang.org/x/term"
 
-	"go.jlucktay.dev/my-github-repos/pkg/version"
+	"go.jlucktay.dev/version"
 )
 
 func prettyPrintTerminal(input []string, repoType string) error {
