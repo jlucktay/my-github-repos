@@ -4,6 +4,7 @@ go 1.16
 
 require (
 	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/joho/godotenv v1.4.0
 	github.com/shurcooL/githubv4 v0.0.0-20210725200734-83ba7b4c9228
 	github.com/shurcooL/graphql v0.0.0-20200928012149-18c5c3165e3a // indirect
 	go.jlucktay.dev/version v0.1.1

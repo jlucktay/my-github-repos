@@ -24,6 +24,12 @@ Get a list of all of repositories owned by me from GitHub, alongside and/or sort
 }
 ```
 
+## GitHub token
+
+The [autoload](https://github.com/joho/godotenv#usage) feature of
+[`github.com/joho/godotenv`](https://github.com/joho/godotenv) is used to look for a `.env` file and read a value for
+`GITHUB_TOKEN` to authenticate with GitHub.
+
 ## TODO
 
 ### Doing

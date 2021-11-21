@@ -31,3 +31,6 @@
 # Binaries
 my-github-repos
 /dist/
+
+# Secrets
+/.env

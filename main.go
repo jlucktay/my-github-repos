@@ -9,6 +9,7 @@ import (
 	"strings"
 	"time"
 
+	_ "github.com/joho/godotenv/autoload"
 	"github.com/shurcooL/githubv4"
 	"go.jlucktay.dev/version"
 	"golang.org/x/oauth2"
