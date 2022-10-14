@@ -54,12 +54,7 @@ func main() {
 
 		return
 	case versionFlag && !jsonFlag:
-		ver, err := version.Details()
-		if err != nil {
-			fmt.Fprintf(os.Stderr, "could not get version details: %v\n", err)
-		}
-
-		fmt.Println(ver)
+		fmt.Println(version.Details())
 
 		return
 	}

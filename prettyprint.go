@@ -60,12 +60,7 @@ const (
 )
 
 func prettyPrintJSON(input []string, repoType printType) error {
-	ver, err := version.Details()
-	if err != nil {
-		return fmt.Errorf("could not get version details: %w", err)
-	}
-
-	jsonBuffer.Version = ver
+	jsonBuffer.Version = version.Details()
 
 	switch repoType {
 	case printSources:
