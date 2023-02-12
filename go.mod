@@ -3,7 +3,7 @@ module go.jlucktay.dev/my-github-repos
 go 1.19
 
 require (
-	github.com/joho/godotenv v1.4.0
+	github.com/joho/godotenv v1.5.1
 	github.com/shurcooL/githubv4 v0.0.0-20220922232305-70b4d362a8cb
 	go.jlucktay.dev/version v0.3.0
 	golang.org/x/oauth2 v0.0.0-20221006150949-b44042a4b9c1
