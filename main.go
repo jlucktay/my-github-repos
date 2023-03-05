@@ -68,7 +68,7 @@ func main() {
 		return
 	}
 
-	oaToken := &oauth2.Token{AccessToken: token} //nolint:exhaustivestruct // No need to be exhaustive here.
+	oaToken := &oauth2.Token{AccessToken: token}
 	src := oauth2.StaticTokenSource(oaToken)
 
 	ctx, cancel := context.WithTimeout(context.Background(), timeout5s)
