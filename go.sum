@@ -10,8 +10,8 @@ github.com/shurcooL/githubv4 v0.0.0-20220922232305-70b4d362a8cb h1:Ptg7eUGaD22iZ
 github.com/shurcooL/githubv4 v0.0.0-20220922232305-70b4d362a8cb/go.mod h1:hAF0iLZy4td2EX+/8Tw+4nodhlMrwN3HupfaXj3zkGo=
 github.com/shurcooL/graphql v0.0.0-20220606043923-3cf50f8a0a29 h1:B1PEwpArrNp4dkQrfxh/abbBAOZBVp0ds+fBEOUOqOc=
 github.com/shurcooL/graphql v0.0.0-20220606043923-3cf50f8a0a29/go.mod h1:AuYgA5Kyo4c7HfUmvRGs/6rGlMMV/6B1bVnB9JxJEEg=
-go.jlucktay.dev/version v0.3.0 h1:+bi2ox2xbDTs+OAt+Vy4WbUJtx+R43WT16qgkNeDX7o=
-go.jlucktay.dev/version v0.3.0/go.mod h1:7Ee9sR2Jy0NVyzYAkhInJOyLQDKfTCCO+yc42Mnm+H4=
+go.jlucktay.dev/version v0.4.1 h1:4TrgEqd5b1ir2pZUgkKg3SuKgOv+P+VWgfzh0Di3cKc=
+go.jlucktay.dev/version v0.4.1/go.mod h1:Hc4LdqGvl1I33zgVzHO2ypK/kQuBlwcPUsHEKBSSSpo=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/net v0.0.0-20190603091049-60506f45cf65/go.mod h1:HSz+uSET+XFnRR8LxR5pz3Of3rY3CfYBVs4xY44aLks=
 golang.org/x/net v0.0.0-20221014081412-f15817d10f9b h1:tvrvnPFcdzp294diPnrdZZZ8XUt2Tyj7svb7X52iDuU=
