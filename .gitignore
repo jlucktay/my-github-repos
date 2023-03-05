@@ -24,14 +24,15 @@
 
 # End of https://www.toptal.com/developers/gitignore/api/go
 
+# Builds and binaries
+/bin/
+/dist/
+/hack/bin/
+my-github-repos
+
 # Makefile things
 /out/
 /tmp/
-
-# Binaries
-my-github-repos
-/dist/
-/hack/bin/
 
 # Secrets
 /.env
