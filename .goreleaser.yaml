@@ -96,6 +96,9 @@ brews:
       # Repository name.
       name: homebrew-tap
 
+      # Optionally a token can be provided, if it differs from the token provided to GoReleaser.
+      token: '{{ .Env.PUBLISH_TO_MY_HOMEBREW_TAP }}'
+
 changelog:
   # Set this to true if you don't want any changelog at all.
   disable: false
