@@ -4,8 +4,8 @@ github.com/shurcooL/githubv4 v0.0.0-20230215024106-420ad0987b9b h1:i0X9yN+P00PrK
 github.com/shurcooL/githubv4 v0.0.0-20230215024106-420ad0987b9b/go.mod h1:hAF0iLZy4td2EX+/8Tw+4nodhlMrwN3HupfaXj3zkGo=
 github.com/shurcooL/graphql v0.0.0-20220606043923-3cf50f8a0a29 h1:B1PEwpArrNp4dkQrfxh/abbBAOZBVp0ds+fBEOUOqOc=
 github.com/shurcooL/graphql v0.0.0-20220606043923-3cf50f8a0a29/go.mod h1:AuYgA5Kyo4c7HfUmvRGs/6rGlMMV/6B1bVnB9JxJEEg=
-go.jlucktay.dev/version v0.4.1 h1:4TrgEqd5b1ir2pZUgkKg3SuKgOv+P+VWgfzh0Di3cKc=
-go.jlucktay.dev/version v0.4.1/go.mod h1:Hc4LdqGvl1I33zgVzHO2ypK/kQuBlwcPUsHEKBSSSpo=
+go.jlucktay.dev/version v0.5.0 h1:QIflJrkF/T2McJDPtoIO98SSjekHWXlUtFcYDCOCjAU=
+go.jlucktay.dev/version v0.5.0/go.mod h1:Hc4LdqGvl1I33zgVzHO2ypK/kQuBlwcPUsHEKBSSSpo=
 golang.org/x/net v0.33.0 h1:74SYHlV8BIgHIFC/LrYkOGIwL19eTYXQ5wc6TBuO36I=
 golang.org/x/net v0.33.0/go.mod h1:HXLR5J+9DxmrqMwG9qjGCxZ+zKXxBru04zlTvWlWuN4=
 golang.org/x/oauth2 v0.24.0 h1:KTBBxWqUa0ykRPLtV69rRto9TLXcqYkeswu48x/gvNE=
