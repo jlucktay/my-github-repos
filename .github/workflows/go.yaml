@@ -101,6 +101,6 @@ jobs:
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
-          args: release
+          args: release --clean
         env:
-          GITHUB_TOKEN: ${{ secrets.PUBLISH_HOMEBREW_TAPS }}
+          GITHUB_TOKEN: ${{ secrets.PUBLISH_TO_MY_HOMEBREW_TAP }}
