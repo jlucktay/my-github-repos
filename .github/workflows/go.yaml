@@ -35,13 +35,13 @@ jobs:
     runs-on: ${{ matrix.platform }}
 
     steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
       - name: Set up Go ${{ matrix.go-version }}
         uses: actions/setup-go@v5
         with:
           go-version: ${{ matrix.go-version }}
-
-      - name: Check out code
-        uses: actions/checkout@v4
 
       # https://github.com/mvdan/github-actions-golang#how-do-i-set-up-caching-between-builds
       - name: Cache between runs
