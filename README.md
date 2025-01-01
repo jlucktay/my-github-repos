@@ -26,9 +26,9 @@ Get a list of all of repositories owned by me from GitHub, alongside and/or sort
 
 ## GitHub token
 
-The [autoload](https://github.com/joho/godotenv#usage) feature of
-[`github.com/joho/godotenv`](https://github.com/joho/godotenv) is used to look for a `.env` file and read a value for
-`GITHUB_TOKEN` to authenticate with GitHub.
+[A personal access token (classic) is used to access
+GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens),
+and must be set in the `GITHUB_TOKEN` environment variable.
 
 ## TODO
 
