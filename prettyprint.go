@@ -5,8 +5,9 @@ import (
 	"os"
 	"strings"
 
-	"go.jlucktay.dev/version"
 	"golang.org/x/term"
+
+	"go.jlucktay.dev/version"
 )
 
 func prettyPrintTerminal(input []string, repoType printType) error {
