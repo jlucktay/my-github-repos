@@ -9,7 +9,6 @@ import (
 	"strings"
 	"time"
 
-	_ "github.com/joho/godotenv/autoload"
 	"github.com/shurcooL/githubv4"
 	"golang.org/x/oauth2"
 
