@@ -1,3 +1,7 @@
+# yaml-language-server: $schema=https://github.com/goreleaser/goreleaser/raw/refs/tags/v2.5.0/www/docs/static/schema.json
+
+version: 2
+
 before:
   hooks:
     - go mod tidy
@@ -11,7 +15,7 @@ builds:
 
     ldflags:
       # https://www.digitalocean.com/community/tutorials/using-ldflags-to-set-version-information-for-go-applications
-      - >
+      - >-
         -X 'go.jlucktay.dev/version.buildDate={{ .Date }}'
         -X 'go.jlucktay.dev/version.builtBy=GoReleaser'
         -X 'go.jlucktay.dev/version.commit={{ .ShortCommit }}'
@@ -24,7 +28,7 @@ builds:
     # List of combinations of GOOS + GOARCH + GOARM to ignore.
     # Default is empty.
     ignore:
-      - goarch: "386"
+      - goarch: '386'
 
       - goos: linux
         goarch: arm
@@ -38,7 +42,7 @@ builds:
 
     # Set the modified timestamp on the output binary, typically you would do this to ensure a build was reproducible.
     # Pass empty string to skip modifying the output.
-    mod_timestamp: "{{ .CommitTimestamp }}"
+    mod_timestamp: '{{ .CommitTimestamp }}'
 
 archives:
   - name_template: >-
@@ -49,73 +53,64 @@ archives:
       {{- else }}{{ .Arch }}{{ end }}
 
 checksum:
-  name_template: "checksums.txt"
+  name_template: checksums.txt
 
 snapshot:
-  name_template: "{{ incpatch .Version }}-next"
+  version_template: '{{ incpatch .Version }}-next'
 
 brews:
-  - # GitHub repository to push the formula to.
-    tap:
-      owner: jlucktay
-      name: homebrew-tap
+  - # Name of the recipe
+    name: my-github-repos
 
-    # Folder inside the repository to put the formula.
-    folder: HomebrewFormula
+    # Directory inside the repository to put the formula.
+    directory: HomebrewFormula
 
     # Caveats for the user of your binary.
-    caveats: |
+    caveats: |-
       Please see the README for usage instructions:
       https://github.com/jlucktay/my-github-repos/blob/main/README.md
 
     # Your app's homepage.
     homepage: https://github.com/jlucktay/my-github-repos
 
-    # Template of your app's description.
-    description: |
-      GraphQL-based tool to fetch GitHub repos sorted by creation date
-
-    # Setting this will prevent goreleaser to actually try to commit the updated formula - instead, the formula file
-    # will be stored on the dist folder only, leaving the responsibility of publishing it to the user.
-    # If set to auto, the release will not be uploaded to the homebrew tap in case there is an indicator for prerelease
-    # in the tag e.g. v1.0.0-rc1
-    # Default is false.
-    skip_upload: "false"
+    # Your app's description.
+    description: GraphQL-based tool to fetch GitHub repos sorted by creation date
 
     # SPDX identifier of your app's license.
     license: MIT
 
-    # # Packages your package depends on.
-    # dependencies:
-    #   - git
-    #   - zsh
-
-    # # Packages that conflict with your package.
-    # conflicts:
-    #   - svn
-    #   - bash
+    # Setting this will prevent goreleaser to actually try to commit the updated formula - instead, the formula file
+    # will be stored on the dist directory only, leaving the responsibility of publishing it to the user.
+    # If set to auto, the release will not be uploaded to the homebrew tap in case there is an indicator for prerelease
+    # in the tag e.g. v1.0.0-rc1
+    skip_upload: false
 
     # So you can `brew test` your formula.
-    test: |
-      system "#{bin}/my-github-repos --version"
+    test: system "#{bin}/my-github-repos --version"
 
-    # # Custom install script for brew.
-    # install: |
-    #   bin.install "my-github-repos"
-    #   output = Utils.popen_read("#{bin}/my-github-repos completion bash")
-    #   (bash_completion/"my-github-repos").write output
-    #   prefix.install_metafiles
+    # Repository to push the generated files to.
+    repository:
+      # Repository owner.
+      owner: jlucktay
+
+      # Repository name.
+      name: homebrew-tap
 
 changelog:
-  # Set it to true if you wish to skip the changelog generation.
-  skip: false
+  # Set this to true if you don't want any changelog at all.
+  disable: false
+
+  # Changelog generation implementation to use.
+  use: github
 
   # Sorts the changelog by the commit's messages.
-  # Could either be 'asc', 'desc', or 'empty'.
   sort: asc
+
+  # Max commit hash length to use in the changelog.
+  abbrev: 10
 
   filters:
     # Commit messages matching the regexp listed here will be removed from the changelog.
     exclude:
-      - "^docs"
-      - "^test"
+      - ^docs
+      - ^test
