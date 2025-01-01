@@ -25,9 +25,6 @@ jobs:
 
     strategy:
       matrix:
-        go-version:
-          - '1.22'
-          - '1.23'
         platform:
           - ubuntu-latest
           - macos-latest
@@ -38,22 +35,22 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Set up Go ${{ matrix.go-version }}
+      - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: ${{ matrix.go-version }}
+          go-version-file: go.mod
 
-      - name: Update 'make' and run 'make all' on Linux
-        if: ${{ matrix.platform == 'ubuntu-latest' }}
-        run: |
+      - if: ${{ startsWith(matrix.platform, 'ubuntu-') }}
+        name: Update 'make' and run 'make all' on Linux
+        run: |-
           sudo apt-get update
           sudo apt-get --only-upgrade install build-essential
           make all
 
       # Cannot use Docker on macOS runners: https://github.community/t/why-is-docker-not-installed-on-macos/17017
-      - name: Install 'make' and run 'make test' on macOS
-        if: ${{ matrix.platform == 'macos-latest' }}
-        run: |
+      - if: ${{ startsWith(matrix.platform, 'macos-') }}
+        name: Install 'make' and run 'make test' on macOS
+        run: |-
           brew install make
           gmake test
 
