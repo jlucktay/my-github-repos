@@ -1,8 +1,7 @@
 issues:
-  exclude-use-default: false
   exclude:
     # Don't expect godocs on exported static errors.
-    - "^exported: exported var Err[A-Za-z]+ should have comment or be unexported$"
+    - '^exported: exported var Err[A-Za-z]+ should have comment or be unexported$'
   max-issues-per-linter: 0
   max-same-issues: 0
   new-from-rev: origin/main
@@ -43,7 +42,6 @@ linters-settings:
     extra-rules: true
 
   govet:
-    check-shadowing: true
     enable-all: true
 
   lll:
@@ -95,6 +93,7 @@ linters:
     - bodyclose
     - dogsled
     - dupl
+    - err113
     - errcheck
     - errorlint
     - gci
@@ -102,7 +101,6 @@ linters:
     - gocritic
     - godot
     - godox
-    - goerr113
     - gofmt
     - gofumpt
     - gosec
@@ -127,7 +125,8 @@ linters:
     - wsl
 
 output:
-  format: tab
+  formats:
+    - format: colored-line-number
   print-issued-lines: true
   print-linter-name: true
   uniq-by-line: true
