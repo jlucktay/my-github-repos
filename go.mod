@@ -1,6 +1,6 @@
 module go.jlucktay.dev/my-github-repos
 
-go 1.23.0
+go 1.25.6
 
 require (
 	github.com/shurcooL/githubv4 v0.0.0-20230215024106-420ad0987b9b
